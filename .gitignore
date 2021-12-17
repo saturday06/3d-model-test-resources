@@ -1,0 +1,8 @@
+*
+
+!*/
+!/blend/**/*.blend
+!/vrm/**/*.vrm
+!/.gitignore
+
+/vrm/*/temp/
