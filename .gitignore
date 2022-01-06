@@ -2,6 +2,7 @@
 
 !*/
 !/blend/**/*.blend
+!/blend/**/*.blend.txt
 !/vrm/**/*.vrm
 !/vrm/**/*.vrm.TO_BE_SUPPORTED.txt
 !/.gitignore
