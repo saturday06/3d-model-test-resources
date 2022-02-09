@@ -3,6 +3,7 @@
 !*/
 !/blend/**/*.blend
 !/blend/**/*.blend.txt
+!/blend/**/*.tga
 !/vrm/**/*.vrm
 !/vrm/**/*.vrm.TO_BE_SUPPORTED.txt
 !/.gitignore
