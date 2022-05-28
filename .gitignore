@@ -6,8 +6,8 @@
 !/blend/**/*.tga
 !/vrm/**/*.vrm
 !/vrm/**/*.vrm.TO_BE_SUPPORTED.txt
-!/gui/blender/vrm_addon/*.sikuli/*
-!/gui/blender/vrm_addon/userpref.blend
+!/gui/test.sikuli/*
+!/gui/userpref.blend
 !/.gitattributes
 !/.gitignore
 
