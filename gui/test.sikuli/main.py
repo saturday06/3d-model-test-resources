@@ -7,22 +7,22 @@ from time import sleep
 
 def wait_click(image, timeout_seconds=30):
     wait(image, timeout_seconds)
-    sleep(1)
+    sleep(0.5)
     # ...
     wait_target = wait(image, timeout_seconds)
-    sleep(1)
+    sleep(0.5)
     hover(wait_target)
-    sleep(1)
+    sleep(0.5)
     click(wait_target)
-    sleep(1)
+    sleep(0.5)
 
 
 def wait_type(string):
-    sleep(1)
+    sleep(0.5)
     for c in string:
         sleep(0.1)
         type(c)
-    sleep(1)
+    sleep(0.5)
 
 
 def install_addon():
