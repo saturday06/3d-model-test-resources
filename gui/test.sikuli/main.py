@@ -201,7 +201,7 @@ finally:
         else:
             print("START VIDEO ENCODING...")
             record_my_desktop.send_signal(signal.SIGINT)
-        for _ in range(60):
+        for _ in range(300):
             v = record_my_desktop.poll()
             if v is not None:
                 break
