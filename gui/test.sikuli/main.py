@@ -96,10 +96,7 @@ record_my_desktop = subprocess.Popen(
 
 success = False
 try:
-    blender = subprocess.Popen(
-        ["/root/blender/blender-softwaregl"],
-        cwd="/root",
-    )
+    blender = subprocess.Popen("blender", cwd="/root")
 
     wait_click("1653006088062.png", 60)
 
