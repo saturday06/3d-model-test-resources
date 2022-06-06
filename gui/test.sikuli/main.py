@@ -113,7 +113,7 @@ try:
     wait_click("1653007264570.png")
 
     wait_click("1653007301490.png")
-    wait("1653007349148.png")
+    wait("1653007349148.png", 60)
 
     wait_click("1653007513161.png")
     wait_click("1653008285770.png")
