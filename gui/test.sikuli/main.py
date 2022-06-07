@@ -6,9 +6,6 @@ from time import sleep
 
 
 def wait_click(image, timeout_seconds=30):
-    wait(image, timeout_seconds)
-    sleep(0.5)
-    # ...
     wait_target = wait(image, timeout_seconds)
     sleep(0.5)
     hover(wait_target)
@@ -31,7 +28,7 @@ def install_addon():
     wait_click("1653006245537.png")
     wait_click("1653006260204.png")
     wait_click("1653006322280.png")
-    wait("1653013496625.png")
+    wait("1653013496625.png", 30)
     wait_click("1653013507589.png")
     wait_click(Pattern("1653006392352.png").targetOffset(-72,0))
     wait_click(Pattern("1653006463807.png").targetOffset(210,0))
@@ -44,7 +41,7 @@ def append_uv_sphere(bone_name):
     wait_click("1653007376739.png")
     wait_click(Pattern("1653007419304.png").targetOffset(-69,0))
     wait_click("1653007450670.png")
-    wait("1653010404331.png")
+    wait("1653010404331.png", 30)
 
     wait_click(Pattern("1653011456504.png"))
     wait_click(Pattern("1653007555060.png").targetOffset(-42,-12))
@@ -96,7 +93,7 @@ record_my_desktop = subprocess.Popen(
 
 success = False
 try:
-    blender = subprocess.Popen("blender", cwd="/root")
+    blender = subprocess.Popen("/usr/bin/blender", cwd="/root")
 
     wait_click("1653006088062.png", 60)
 
@@ -106,9 +103,7 @@ try:
 
     wait_click("1653013745955.png")
 
-    sleep(2)
     wait_type("n")
-    sleep(2)
 
     wait_click("1653007264570.png")
 
@@ -119,44 +114,29 @@ try:
     wait_click("1653008285770.png")
     wait_click("1653008323373.png")
     wait_click("1653008343234.png")
-    sleep(1)
     wait_type("Armature\n")
-    sleep(1)
     wait_click("1653008471474.png")
-    sleep(1)
     wait_type("b")
-    sleep(1)
     wait_click("1653008569519.png")
-    sleep(1)
     wait_type("spine\n")
-    sleep(1)
 
     wait_click(Pattern("1653011456504.png"))
     wait_click(Pattern("1653007555060.png").targetOffset(-40,-13))
 
-    sleep(0.5)
     wait_type("0.2")
-    sleep(0.5)
     wait_type("\n")
-    sleep(0.5)
 
     wait_click(Pattern("1653011456504.png"))
     wait_click(Pattern("1653007763700.png").targetOffset(-25,6))
 
-    sleep(0.5)
     wait_type("0.2")
-    sleep(0.5)
     wait_type("\n")
-    sleep(0.5)
 
     wait_click(Pattern("1653011456504.png"))
     wait_click(Pattern("1653007801968.png").targetOffset(-28,27))
 
-    sleep(0.5)
     wait_type("0.2")
-    sleep(0.5)
     wait_type("\n")
-    sleep(0.5)
 
     for bone_name in [
         "head",
@@ -179,8 +159,8 @@ try:
     output_path = "/root/untitled.vrm"
 
     # wait for save
-    for retry in range(10):
-        sleep(3)
+    for retry in range(30):
+        sleep(1)
         if os.path.exists(output_path):
             break
 
