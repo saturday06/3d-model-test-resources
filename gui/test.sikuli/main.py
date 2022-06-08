@@ -10,6 +10,7 @@ def wait_click(image, timeout_seconds=30):
     sleep(0.5)
     hover(wait_target)
     sleep(0.5)
+    Settings.ClickDelay = 0.2
     click(wait_target)
     sleep(0.5)
 
