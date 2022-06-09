@@ -7,20 +7,25 @@ from time import sleep
 
 def wait_click(image, timeout_seconds=30):
     wait_target = wait(image, timeout_seconds)
-    sleep(0.5)
-    hover(wait_target)
+    default_mouse_move_delay = Settings.MoveMouseDelay
+    Settings.MoveMouseDelay = 0
+    mouseMove(wait_target.getTarget().above(1))
+    Settings.MoveMouseDelay = 0.05
+    mouseMove(wait_target.getTarget().left(1))
+    mouseMove(wait_target.getTarget().right(1))
+    mouseMove(wait_target.getTarget().below(1))
+    mouseMove(wait_target)
     sleep(0.5)
     Settings.ClickDelay = 0.2
     click(wait_target)
-    sleep(0.5)
+    Settings.MoveMouseDelay = default_mouse_move_delay
 
 
 def wait_type(string):
     sleep(0.5)
     for c in string:
-        sleep(0.1)
         type(c)
-    sleep(0.5)
+        sleep(0.1)
 
 
 def install_addon():
@@ -97,8 +102,7 @@ try:
     blender = subprocess.Popen("/usr/bin/blender", cwd="/root")
 
     wait_click("1653006088062.png", 60)
-
-    dragDrop("1653009624328.png", "1653009705365.png")
+    # dragDrop("1653009624328.png", "1653009705365.png")
 
     # install_addon()
 
