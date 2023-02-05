@@ -5,6 +5,7 @@ import shutil
 import struct
 import sys
 from collections import abc
+from pathlib import Path
 from typing import List, Tuple
 
 from io_scene_vrm.common.gltf import pack_glb, parse_glb
@@ -191,8 +192,7 @@ def main() -> int:
         }
     )
 
-    with open(os.path.join(os.path.dirname(__file__), "vrm1_test_texture.png"), "rb") as f:
-        image_bytes = f.read()
+    image_bytes = Path(__file__).with_name("vrm1_test_texture.png").read_bytes()
     padded_image_bytes = bytes(image_bytes)
     while len(padded_image_bytes) % 16 == 0:
         padded_image_bytes += b'\x00'
@@ -427,7 +427,7 @@ def main() -> int:
         "specVersion": "1.0",
         "meta": {
             "licenseUrl": "https://vrm.dev/licenses/1.0/",
-            "name": os.path.basename(sys.argv[1]),
+            "name": Path(sys.argv[1]).name,
             "version": "UniVRMへのバグ報告用",
             "avatarPermission": "onlyAuthor",
             "allowExcessivelyViolentUsage": False,
