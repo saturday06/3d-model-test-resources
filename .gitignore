@@ -9,7 +9,8 @@
 !/vrm/converter/*
 !/gui/test.sikuli/*
 !/gui/userpref.blend
+!/unity/**
+!/.editorconfig
 !/.gitattributes
 !/.gitignore
-
 /vrm/*/temp/
