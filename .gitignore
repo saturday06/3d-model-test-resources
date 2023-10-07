@@ -13,4 +13,6 @@
 !/.editorconfig
 !/.gitattributes
 !/.gitignore
+
 /vrm/*/temp/
+.DS_Store
