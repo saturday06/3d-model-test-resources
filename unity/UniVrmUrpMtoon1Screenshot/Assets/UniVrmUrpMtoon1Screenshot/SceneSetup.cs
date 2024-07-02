@@ -1,7 +1,8 @@
-using UnityEditor;
-using UnityEditor.SceneManagement;
 using System.Linq;
 using System.Threading.Tasks;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 namespace UniVrmUrpMtoon1Screenshot
 {
@@ -14,7 +15,7 @@ namespace UniVrmUrpMtoon1Screenshot
             EditorApplication.delayCall += () => taskCompletionSource.SetResult(true);
             await taskCompletionSource.Task;
 
-            var currentScene = EditorSceneManager.GetActiveScene();
+            var currentScene = SceneManager.GetActiveScene();
             if (!string.IsNullOrEmpty(currentScene.name))
             {
                 return;

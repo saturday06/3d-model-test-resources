@@ -20,14 +20,16 @@ namespace UniVrmUrpMtoon1Screenshot
 
             var sceneName = "Sphere1";
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-            Task.Delay(TimeSpan.FromSeconds(10)).ContinueWith(
-                _ => {
-                    SceneManager.UnloadSceneAsync(sceneName);
-                },
-                CancellationToken.None,
-                TaskContinuationOptions.None,
-                TaskScheduler.FromCurrentSynchronizationContext()
-            );
+            Task.Delay(TimeSpan.FromSeconds(10))
+                .ContinueWith(
+                    _ =>
+                    {
+                        SceneManager.UnloadSceneAsync(sceneName);
+                    },
+                    CancellationToken.None,
+                    TaskContinuationOptions.None,
+                    TaskScheduler.FromCurrentSynchronizationContext()
+                );
         }
     }
 }
