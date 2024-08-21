@@ -69,7 +69,7 @@ def main() -> int:
     # )
 
     texcoord_buffer_byte_offset = len(binary_chunk)
-    texcoords: List[Tuple[float, float]] = [
+    texcoords: list[tuple[float, float]] = [
         (0.0, 0.0),
         (1.0, 0.0),
         (1.0, 1.0),
@@ -194,7 +194,7 @@ def main() -> int:
     image_bytes = Path(__file__).with_name("vrm1_test_texture.png").read_bytes()
     padded_image_bytes = bytes(image_bytes)
     while len(padded_image_bytes) % 16 == 0:
-        padded_image_bytes += b'\x00'
+        padded_image_bytes += b"\x00"
     image_buffer_byte_offset = len(binary_chunk)
     binary_chunk += padded_image_bytes
     image_buffer_view_index = len(json_dict["bufferViews"])
@@ -209,28 +209,29 @@ def main() -> int:
     if not isinstance(json_dict.get("samplers"), list):
         json_dict["samplers"] = []
     image_sampler_index = len(json_dict["samplers"])
-    json_dict["samplers"].append({
-            "magFilter": 9729,
-            "minFilter": 9987,
-            "wrapS": 10497,
-            "wrapT": 10497
-    })
+    json_dict["samplers"].append(
+        {"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497}
+    )
 
     if not isinstance(json_dict.get("images"), list):
         json_dict["images"] = []
     image_index = len(json_dict["images"])
-    json_dict["images"].append({
-        "bufferView": image_buffer_view_index,
-        "mimeType": "image/png",
-    })
+    json_dict["images"].append(
+        {
+            "bufferView": image_buffer_view_index,
+            "mimeType": "image/png",
+        }
+    )
 
     if not isinstance(json_dict.get("textures"), list):
         json_dict["textures"] = []
     texture_index = len(json_dict["textures"])
-    json_dict["textures"].append({
-        "sampler": image_sampler_index,
-        "source": image_index,
-    })
+    json_dict["textures"].append(
+        {
+            "sampler": image_sampler_index,
+            "source": image_index,
+        }
+    )
 
     if not isinstance(json_dict.get("materials"), list):
         json_dict["materials"] = []
@@ -238,7 +239,7 @@ def main() -> int:
     json_dict["materials"].append(
         {
             "pbrMetallicRoughness": {"baseColorTexture": {"index": texture_index}},
-            "emissiveFactor": [0.2, 0.2, 0.2]
+            "emissiveFactor": [0.2, 0.2, 0.2],
         }
     )
 
@@ -261,7 +262,7 @@ def main() -> int:
                 "COLOR_0": color_accessors_index,
                 "TEXCOORD_0": texcoord_accessors_index,
             },
-            "material": material_index
+            "material": material_index,
         }
     else:
         primitive = {
@@ -269,7 +270,7 @@ def main() -> int:
                 "POSITION": position_accessors_index,
                 "TEXCOORD_0": texcoord_accessors_index,
             },
-            "material": material_index
+            "material": material_index,
         }
 
     meshes = json_dict.get("meshes")
@@ -442,7 +443,7 @@ def main() -> int:
                 "https://github.com/KhronosGroup/glTF-Sample-Models/tree/b4c124c18171b6dead0350b6e46826e320a49a23/2.0",
             ],
             "otherLicenseUrl": "https://github.com/KhronosGroup/glTF-Sample-Models/tree/b4c124c18171b6dead0350b6e46826e320a49a23/2.0/",
-            "thirdPartyLicenses": "こちらはUniVRMへのバグ報告を目的としたモデルのため一般利用はお控えください"
+            "thirdPartyLicenses": "こちらはUniVRMへのバグ報告を目的としたモデルのため一般利用はお控えください",
         },
         "humanoid": {"humanBones": human_bones_dict},
         "firstPerson": {},
