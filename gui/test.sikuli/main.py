@@ -56,12 +56,12 @@ def append_uv_sphere(bone_name):
     wait_type("\n")
     wait_click(Pattern("1653011456504.png"))
     wait_click(Pattern("1653007763700.png").targetOffset(-31,7))
-    
+
     wait_type(size)
     wait_type("\n")
     wait_click(Pattern("1653011456504.png"))
     wait_click(Pattern("1653007801968.png").targetOffset(-34,29))
-    
+
     wait_type(size)
     wait_type("\n")
 
